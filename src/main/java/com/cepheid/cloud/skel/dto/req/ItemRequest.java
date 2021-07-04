@@ -59,7 +59,6 @@ public class ItemRequest implements IRequestValidatable {
         if(this.state == null)
             throw new IllegalArgumentException("state can not be null");
 
-        //descriptions can be empty but shouldn't be explicitly set to null
         if(this.descriptions == null)
             throw new IllegalArgumentException("state can not be null");
     }

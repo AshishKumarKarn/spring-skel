@@ -1,16 +1,14 @@
 package com.cepheid.cloud.skel;
 
+import com.cepheid.cloud.skel.controller.ItemController;
+import io.swagger.jaxrs.config.BeanConfig;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.springframework.stereotype.Component;
-
-import com.cepheid.cloud.skel.controller.ItemController;
-
-import io.swagger.jaxrs.config.BeanConfig;
-import io.swagger.jaxrs.listing.ApiListingResource;
-import io.swagger.jaxrs.listing.SwaggerSerializers;
 
 @Component
 public class JerseyConfig extends ResourceConfig {

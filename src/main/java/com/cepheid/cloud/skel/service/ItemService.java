@@ -5,11 +5,10 @@ import com.cepheid.cloud.skel.dto.resp.ItemResponse;
 import com.cepheid.cloud.skel.model.Item;
 import com.cepheid.cloud.skel.repository.ItemRepository;
 import com.cepheid.cloud.skel.util.Transformer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.core.Response;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -18,6 +17,7 @@ import java.util.stream.Collectors;
 public class ItemService {
     private final ItemRepository itemRepository;
 
+    @Autowired
     public ItemService(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }

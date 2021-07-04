@@ -11,6 +11,7 @@ import java.util.StringJoiner;
 
 @Entity
 public class Description extends AbstractEntity{
+
     private String descriptionComment;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
