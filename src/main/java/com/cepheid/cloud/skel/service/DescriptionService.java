@@ -50,10 +50,10 @@ public class DescriptionService {
     }
 
     public List<DescriptionResponse> findAll() {
-        List<Description> all = descriptionRepository.findAll();
-        if (all.isEmpty()) {
+        List<Description> descriptions = descriptionRepository.findAll();
+        if (descriptions.isEmpty()) {
             return Collections.singletonList(new DescriptionResponse(Boolean.TRUE, "No description data present in database"));
         }
-        return all.stream().map(Transformer::transformDescriptionToDescriptionResponse).collect(Collectors.toList());
+        return descriptions.stream().map(Transformer::transformDescriptionToDescriptionResponse).collect(Collectors.toList());
     }
 }
