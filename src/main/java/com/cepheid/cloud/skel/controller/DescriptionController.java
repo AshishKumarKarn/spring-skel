@@ -17,6 +17,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Component
 @Path("/api/1.0/descriptions")
@@ -92,4 +93,16 @@ public class DescriptionController {
         return Response.status(Response.Status.OK).entity(response).build();
     }
 
+    @GET
+    @ApiOperation(value = "get all description",
+            notes = "This method finds all descriptions present in database")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllDescription() {
+
+        List<DescriptionResponse> descriptions = descriptionService.findAll();
+        if (descriptions.get(0).isInError())
+            return Response.status(Response.Status.NOT_FOUND).entity(descriptions).build();
+
+        return Response.status(Response.Status.OK).entity(descriptions).build();
+    }
 }

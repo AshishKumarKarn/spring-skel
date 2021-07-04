@@ -13,7 +13,7 @@ public abstract class CephiedResponse {
         this.errorMsg = errorMsg;
     }
 
-    public boolean isInError() {
+    public Boolean isInError() {
         return inError;
     }
 

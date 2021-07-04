@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DescriptionService {
@@ -44,5 +47,13 @@ public class DescriptionService {
             return new DescriptionResponse(Boolean.TRUE, "Description with id " + descriptionId + " not found");
         }
         return new DescriptionResponse(Boolean.FALSE, null, description.getDescriptionComment());
+    }
+
+    public List<DescriptionResponse> findAll() {
+        List<Description> all = descriptionRepository.findAll();
+        if (all.isEmpty()) {
+            return Collections.singletonList(new DescriptionResponse(Boolean.TRUE, "No description data present in database"));
+        }
+        return all.stream().map(Transformer::transformDescriptionToDescriptionResponse).collect(Collectors.toList());
     }
 }

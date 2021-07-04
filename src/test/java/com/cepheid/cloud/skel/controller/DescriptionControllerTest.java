@@ -75,4 +75,11 @@ public class DescriptionControllerTest extends TestBase {
         assertEquals(Response.Status.NOT_ACCEPTABLE.getStatusCode(), response.getStatus());
     }
 
+    @Test
+    public void testGetAllDescription() {
+        Invocation.Builder descriptionController = getBuilder("/app/api/1.0/descriptions");
+        Response response = descriptionController.buildGet().invoke();
+        assertNotNull(response);
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+    }
 }
