@@ -46,7 +46,7 @@ public class DescriptionService {
         } else {
             return new DescriptionResponse(Boolean.TRUE, "Description with id " + descriptionId + " not found");
         }
-        return new DescriptionResponse(Boolean.FALSE, null, description.getDescriptionComment());
+        return new DescriptionResponse(Boolean.FALSE, null, description.getDescriptionComment(), descriptionId);
     }
 
     public List<DescriptionResponse> findAll() {

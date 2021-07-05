@@ -35,10 +35,10 @@ public class Transformer {
     }
 
     public static ItemResponse transformItemToItemResponse(Item item) {
-        return new ItemResponse(Boolean.FALSE, item.getName(), item.getState(), item.getDescriptions().stream().map(Transformer::transformDescriptionToDescriptionResponse).collect(Collectors.toList()));
+        return new ItemResponse(Boolean.FALSE, item.getName(), item.getState(), item.getDescriptions().stream().map(Transformer::transformDescriptionToDescriptionResponse).collect(Collectors.toList()), item.getId());
     }
 
     public static DescriptionResponse transformDescriptionToDescriptionResponse(Description description) {
-        return new DescriptionResponse(Boolean.FALSE, null, description.getDescriptionComment());
+        return new DescriptionResponse(Boolean.FALSE, null, description.getDescriptionComment(), description.getId());
     }
 }

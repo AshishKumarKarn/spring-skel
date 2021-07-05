@@ -9,13 +9,13 @@ public class DescriptionResponse extends CephiedResponse {
     private final String descriptionComment;
 
 
-    public DescriptionResponse(Boolean inError,String errorMsg, String descriptionComment) {
-        super(inError, null);
+    public DescriptionResponse(Boolean inError, String errorMsg, String descriptionComment, Long id) {
+        super(inError, null, id);
         this.descriptionComment = descriptionComment;
     }
 
     public DescriptionResponse(Boolean inError, String errorMsg) {
-        super(inError, errorMsg);
+        super(inError, errorMsg, null);
         this.descriptionComment = null;
     }
 

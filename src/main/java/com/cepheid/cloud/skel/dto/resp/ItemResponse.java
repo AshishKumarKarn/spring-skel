@@ -12,15 +12,15 @@ public class ItemResponse extends CephiedResponse {
     private final Item.State state;
     private final List<DescriptionResponse> descriptionResponses;
 
-    public ItemResponse(Boolean inError, String name, Item.State state, List<DescriptionResponse> descriptionResponses) {
-        super(inError, null);
+    public ItemResponse(Boolean inError, String name, Item.State state, List<DescriptionResponse> descriptionResponses, Long id) {
+        super(inError, null, id);
         this.name = name;
         this.state = state;
         this.descriptionResponses = descriptionResponses;
     }
 
     public ItemResponse(Boolean inError, String errorMsg) {
-        super(inError, errorMsg);
+        super(inError, errorMsg, null);
         this.name = null;
         this.state = null;
         this.descriptionResponses = null;
